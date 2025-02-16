@@ -3,7 +3,7 @@ from urllib.parse import quote
 from bs4 import BeautifulSoup
 import pandas as pd
 
-# KADX 농식품 빅데이터 거래소에 있는 만개의레시피 데이터셋(https://kadx.co.kr/opmk/frn/pmumkproductDetail/PMU_79c6f1a4-56dd-492e-ad67-c5acba0304d2/5)에서 레시피 이름들만 추출해 리스트로 만들었음음
+# KADX 농식품 빅데이터 거래소에 있는 만개의레시피 데이터셋(https://kadx.co.kr/opmk/frn/pmumkproductDetail/PMU_79c6f1a4-56dd-492e-ad67-c5acba0304d2/5)에서 레시피 이름들만 추출해 리스트로 만들었음
 csv_file_path = "./recipe_first_100.csv"
 df = pd.read_csv(csv_file_path, low_memory=False)
 column_name = "RCP_TTL"
@@ -110,7 +110,7 @@ for i in range(len(column_data_list)):
 food_info_df = pd.DataFrame(food_info_list)
 
 # DataFrame을 CSV로 저장
-output_csv_path = './recipe_info.csv'
+output_csv_path = './recipe_info1.csv'
 food_info_df.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
 
 print(f"Recipe information saved to {output_csv_path}")
