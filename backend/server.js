@@ -3,6 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const axios = require('axios');
+require('dotenv').config()
 
 app.use(express.json());
 
