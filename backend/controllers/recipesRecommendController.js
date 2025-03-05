@@ -1,5 +1,7 @@
 const Recipe = require('../models/Recipe');
 
+const { findRecipesBasedOnIngredients } = require('../utils/recipeUtils');
+
 // 뭐해먹지 기능
 // TODO: mysql 서버에서 사용자 정보(내 냉장고 현황 정보) 가져오기 ❌
 // TODO: mysql 서버의 모든 레시피와 '내 냉장고 현황 정보'의 Jaccard Distance(자커드 거리) 계산하는 코드 ❌
