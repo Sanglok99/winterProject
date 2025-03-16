@@ -7,13 +7,19 @@ const { findRecipesBasedOnIngredients } = require('../utils/recipeUtils');
 // TODO: mysql 서버의 모든 레시피와 '내 냉장고 현황 정보'의 Jaccard Distance(자커드 거리) 계산하는 코드 ❌
 exports.recommendRecipes = async (req, res) => {
     try{
+        // console.log("📌 req.body: ", req.body); // 🚀 Debug 로그 추가
+
         //spring 서버에서 사용자의 냉장고 재료 정보 가져오기
-        const userIngredients = req.body; // 요청 body에서 사용자 재료 정보 받기
+        const { userIngredients } = req.body; // 요청 body에서 사용자 재료 정보 받기
         if(!userIngredients || Object.keys(userIngredients).length === 0){
             return res.status(400).json({ error: '사용자 재료 정보가 필요합니다.' });
         }
 
-        const recommendedResults = findRecipesBasedOnIngredients(userIngredients);
+        // console.log("✅ userIngredients: ", userIngredients); // 🚀 Debug 로그 추가
+
+        const recommendedResults = await findRecipesBasedOnIngredients(userIngredients);
+
+        // console.log("✅ recommendedResults: ", recommendedResults); // 🚀 Debug 로그 추가
 
         res.json({
             message: '내 냉장고 기반 맞춤 레시피 추천',
